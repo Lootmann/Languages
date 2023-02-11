@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from model import User
+from api import select_all, select_raw, select_where, insert_once, insert_bulk
 
 
 def main():
@@ -9,19 +9,14 @@ def main():
     engine = create_engine(DATABASE_URL, echo=True)
 
     Session = sessionmaker(bind=engine)
-    session = Session()
+    db = Session()
 
-    # Insert
-    user = User()
-    user.name = "hoge"
-
-    # read all User
-    for r in session.query(User):
-        print(r.id, r.name)
-
-    session.add(user)
-    session.commit()
-    session.close()
+    insert_once(db)
+    insert_bulk(db)
+    select_all(db)
+    select_raw(db)
+    select_where(db)
+    db.close()
 
 
 if __name__ == "__main__":
