@@ -1,8 +1,18 @@
 import asyncio
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 
-from api import create_user, get_all_users, create_posts, get_all_posts, select_join
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker
+
+from api import (
+    create_posts,
+    create_user,
+    delete_user,
+    find_updated,
+    get_all_posts,
+    get_all_users,
+    select_join,
+    update,
+)
 
 
 async def main():
@@ -22,6 +32,9 @@ async def main():
     await get_all_users(db)
     await get_all_posts(db)
     await select_join(db)
+    await update(db)
+    await find_updated(db)
+    await delete_user(db)
 
     await db.close()
 
