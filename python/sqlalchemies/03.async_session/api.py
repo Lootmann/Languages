@@ -87,7 +87,6 @@ async def update(db: AsyncSession):
     """
     # update user
     res = (await db.execute(select(User).order_by(func.random()))).first()
-
     if not res:
         return
 
@@ -135,7 +134,7 @@ async def delete_user(db: AsyncSession):
     posts = (await db.execute(select(Post.id, Post.title).filter(Post.user_id == user_id))).all()
 
     if posts == []:
-        print("No Post D")
+        print("No Post D:")
         return
 
     # delete all posts
