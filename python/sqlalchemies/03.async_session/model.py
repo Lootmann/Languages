@@ -11,6 +11,9 @@ class User(Base):
     name: Mapped[str]
     posts: Mapped["Post"] = relationship(back_populates="user")
 
+    def __repr__(self) -> str:
+        return f"<User (id, name, posts) = ({self.id}, {self.name}, {self.posts})>"
+
 
 class Post(Base):
     __tablename__ = "posts"
@@ -22,3 +25,6 @@ class Post(Base):
     # foreign key
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     user: Mapped["User"] = relationship(back_populates="posts")
+
+    def __repr__(self) -> str:
+        return f"<Post (id, ti, co) = ({self.id}, {self.title}, {self.content}, {self.user_id})>"
