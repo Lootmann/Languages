@@ -1,7 +1,6 @@
-from pydantic import ValidationError
-
 import post as post_schema
 import user as user_schema
+from pydantic import ValidationError
 
 
 def get_posts():

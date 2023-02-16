@@ -1,8 +1,7 @@
 from typing import List
 
-from pydantic import BaseModel, Field, validator
-
 import post
+from pydantic import BaseModel, Field, validator
 
 
 class UserBase(BaseModel):

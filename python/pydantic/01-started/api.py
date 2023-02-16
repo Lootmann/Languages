@@ -1,9 +1,8 @@
 from typing import List
 
-from sqlalchemy.orm import Session
-
 from model import User as user_model
 from schema import UserCreate, UserCreateReponse
+from sqlalchemy.orm import Session
 
 
 def create_user(db: Session, user_schema: UserCreate) -> UserCreateReponse:
