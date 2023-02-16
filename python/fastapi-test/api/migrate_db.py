@@ -1,7 +1,6 @@
-from sqlalchemy import create_engine
-
 from api.db import DATABASE_URL
 from api.models.users import User
+from sqlalchemy import create_engine
 
 engine = create_engine(DATABASE_URL, echo=True)
 
