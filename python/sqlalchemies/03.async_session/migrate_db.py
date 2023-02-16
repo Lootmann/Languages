@@ -1,7 +1,5 @@
-from sqlalchemy import create_engine
-
-
 from model import Base
+from sqlalchemy import create_engine
 
 DB_URL = "sqlite:///dev.db"
 engine = create_engine(DB_URL, echo=True)

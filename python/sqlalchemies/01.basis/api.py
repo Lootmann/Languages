@@ -1,7 +1,7 @@
-from sqlalchemy import select, insert, between
+from model import User
+from sqlalchemy import between, insert, select
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import text
-from model import User
 
 
 def title(msg: str):
@@ -68,8 +68,8 @@ def select_where(db: Session):
         print(row)
 
     """BETWEEN
-    SELECT users.id, users.name 
-    FROM users 
+    SELECT users.id, users.name
+    FROM users
     WHERE users.id BETWEEN ? AND ? + (5, 10)
     """
     stmt = select(User.id, User.name).where(between(User.id, 5, 10))

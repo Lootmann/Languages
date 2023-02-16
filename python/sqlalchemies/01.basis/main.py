@@ -1,7 +1,6 @@
+from api import insert_bulk, insert_once, select_all, select_raw, select_where
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
-from api import select_all, select_raw, select_where, insert_once, insert_bulk
 
 
 def main():

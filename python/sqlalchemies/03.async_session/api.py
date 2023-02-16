@@ -2,11 +2,10 @@ import functools
 from random import choice, randint, sample
 from string import ascii_uppercase
 
+from model import Post, User
 from sqlalchemy import func
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.sql import select
-
-from model import Post, User
 
 
 def title(msg: str):

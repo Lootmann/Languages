@@ -1,7 +1,6 @@
+from api import insert, select_join, select_posts, select_users
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
-from api import insert, select_join, select_posts, select_users
 
 
 def main():

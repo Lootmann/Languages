@@ -1,8 +1,5 @@
 import asyncio
 
-from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
-from sqlalchemy.orm import sessionmaker
-
 from api import (
     create_posts,
     create_user,
@@ -13,6 +10,8 @@ from api import (
     select_join,
     update,
 )
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker
 
 
 async def main():

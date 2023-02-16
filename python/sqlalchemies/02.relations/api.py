@@ -1,9 +1,8 @@
 from random import choice, randint
 from string import ascii_uppercase
 
-from sqlalchemy.orm import Session
-
 from model import Post, User
+from sqlalchemy.orm import Session
 
 
 def title(msg: str):
