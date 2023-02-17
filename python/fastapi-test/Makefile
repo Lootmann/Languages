@@ -13,6 +13,10 @@ migrate:
 docs:
 	google-chrome http://127.0.0.1:8080/docs
 
+.PHONY: req
+req:
+	pip freeze > requirements.txt
+
 .PHONY: pre
 pre:
 	pre-commit run --all-files
