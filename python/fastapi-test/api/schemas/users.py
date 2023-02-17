@@ -2,20 +2,20 @@ from pydantic import BaseModel
 
 
 class UserBase(BaseModel):
-    name: str
-    email: str
+    name: str = "username"
+    email: str = "email"
 
     class Config:
         orm_mode = True
 
 
-class UserReponse(UserBase):
+class UserResponse(UserBase):
     id: int
 
 
 class UserCreate(UserBase):
     # NOTE: convert password to hashed password when insert into db
-    password: str
+    password: str = "password"
 
 
 class UserCreateResponse(UserBase):

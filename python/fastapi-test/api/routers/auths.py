@@ -1,17 +1,13 @@
 from api.cruds import auths as auth_api
 from api.db import get_db
-from api.schemas import auths as auth_schema
 from fastapi import APIRouter, Depends, HTTPException
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
 router = APIRouter()
 
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
-
-@router.post("/token", response_model=auth_schema.Auth)
+@router.post("/token")
 def login(db: Session = Depends(get_db), form_data: OAuth2PasswordRequestForm = Depends()):
     user = auth_api.find_user_with_auth(db, form_data.username)
 
