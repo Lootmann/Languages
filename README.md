@@ -5,18 +5,16 @@ There are tons of Programming Languages.
 These will be fun 🤗🤗🤗
 
 
-## Cpp
+## Cpp 🙂
 
-🙂
+## elm 🙂
 
-## Golang
+## Golang 🙂
 
-🙂
+## Haskell 🙂
 
-## Python
+## Python 🙂
 
-🙂
+## Rust 😉
 
-## Rust
-
-😉
+## Python 🙂
