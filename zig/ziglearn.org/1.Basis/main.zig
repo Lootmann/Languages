@@ -7,9 +7,7 @@ pub fn fib(n: u16) u16 {
 }
 
 pub fn main() void {
-    //
     // Assignment
-    //
     std.debug.print("Hello, {s}!\n", .{"World"});
 
     const constant: i32 = 5;
@@ -25,12 +23,16 @@ pub fn main() void {
     print("{d}\n", .{inferred_variable});
 
     // Arrays
-    const char_array = [5]u8{ 'h', 'e', 'l', 'l', 'o' };
-    print("a.len = {d}\n", .{char_array.len});
+    const string = [_]u8{ 'h', 'e', 'l', 'l', 'o' };
+    print("a.len = {d}\n", .{string.len});
 
     // for
-    for (char_array) |character, index| {
-        print("{c}, {d}\n", .{ character, index });
+    for (string) |_| {}
+    for (string) |ch| {
+        _ = ch;
+    }
+    for (string, 0..) |ch, idx| {
+        print("{c}, {d}\n", .{ ch, idx });
     }
 
     // if
