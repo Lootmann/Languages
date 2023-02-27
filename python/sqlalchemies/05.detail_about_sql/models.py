@@ -21,9 +21,10 @@ class Base(DeclarativeBase):
 class User(Base):
     """
     CREATE TABLE users (
-            id INTEGER NOT NULL,
-            PRIMARY KEY (id)
-    );
+        id INTEGER NOT NULL,
+        name VARCHAR NOT NULL,
+        PRIMARY KEY (id)
+    )
     """
 
     __tablename__ = "users"
@@ -35,17 +36,18 @@ class User(Base):
     likes: Mapped[List["Like"]] = relationship("Like", back_populates="user")
 
     def __repr__(self) -> str:
-        return f"<User {self.id}>"
+        return f"<User (id, name) = ({self.id}, {self.name}, {self.tweets}, {self.likes})>"
 
 
 class Tweet(Base):
     """
     CREATE TABLE tweets (
         id INTEGER NOT NULL,
+        message VARCHAR NOT NULL,
         user_id INTEGER NOT NULL,
         PRIMARY KEY (id),
         FOREIGN KEY(user_id) REFERENCES users (id)
-    );
+    )
     """
 
     __tablename__ = "tweets"
@@ -59,7 +61,7 @@ class Tweet(Base):
     likes: Mapped[List["Like"]] = relationship("Like", back_populates="tweet")
 
     def __repr__(self) -> str:
-        return f"<Tweet {self.id}>"
+        return f"<Tweet (id, user_id) = ({self.id}, {self.user_id})>"
 
 
 class Like(Base):
@@ -85,4 +87,4 @@ class Like(Base):
     tweet: Mapped["Tweet"] = relationship("Tweet", back_populates="likes")
 
     def __repr__(self) -> str:
-        return f"<Like {self.id}>"
+        return f"<Like (id, user_id, tweet_id) = ({self.id}, {self.user_id}, {self.tweet_id})>"

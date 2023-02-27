@@ -22,13 +22,16 @@ def title(msg: str):
 
 async def main():
     async with session() as db:
-        title("User Processing")
         await api.create_user(db)
-        await api.select_user(db)
+        await api.create_tweet(db)
+        await api.create_like(db)
 
     async with session() as db:
-        title("")
-        pass
+        await api.select_user(db)
+        await api.select_tweet(db)
+
+    async with session() as db:
+        await api.test(db)
 
 
 if __name__ == "__main__":
