@@ -3,3 +3,6 @@ run:
 
 test:
 	pytest -svv
+
+migrate:
+	python3 db.py

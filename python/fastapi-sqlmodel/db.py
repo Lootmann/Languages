@@ -14,3 +14,9 @@ def create_db_and_tables():
 def get_session():
     with Session(engine) as session:
         yield session
+
+
+if __name__ == "__main__":
+    from models import Hero, Post, PostTagLink, Tag
+
+    create_db_and_tables()
